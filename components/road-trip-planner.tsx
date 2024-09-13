@@ -46,7 +46,7 @@ export function RoadTripPlannerComponent() {
   const [route, setRoute] = useState<any>(null);
   const [cityResults, setCityResults] = useState<any[]>([]);
   const [selectedCity, setSelectedCity] = useState<any>(null);
-  const [chargers, setChargers] = useState<ChargerType[]>([]);
+  //const [chargers, setChargers] = useState<ChargerType[]>([]);
   const [routeCoordinates, setRouteCoordinates] = useState<[number, number][]>(
     []
   );
@@ -327,9 +327,9 @@ export function RoadTripPlannerComponent() {
           routeCoordinates={routeCoordinates}
           onChargersUpdate={handleChargersUpdate}
           selectedCharger={selectedCharger}
-          nearbyFood={nearbyFood}
+          nearbyFood={nearbyFood as any}
           clearMap={clearMap}
-          selectedFood={selectedFood}
+          selectedFood={selectedFood as any}
           chargerFilters={chargerFilters}
         />
       </div>

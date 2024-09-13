@@ -114,7 +114,7 @@ export function MapComponent({
     if (!map.current) return;
     const bounds = map.current.getBounds();
     const visibleChargers = chargers.filter((charger) =>
-      bounds.contains([charger.longitude, charger.latitude])
+      bounds?.contains([charger.longitude, charger.latitude])
     );
     onChargersUpdate(visibleChargers);
   }, [chargers, onChargersUpdate]);
@@ -319,7 +319,9 @@ export function MapComponent({
 
     // Remove existing food markers and close their popups
     foodMarkers.current.forEach((marker) => {
-      marker.getPopup().remove();
+      if (marker.getPopup()) {
+        marker.getPopup()?.remove();
+      }
       marker.remove();
     });
     foodMarkers.current = [];
